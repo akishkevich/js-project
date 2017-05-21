@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2048</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="2048style.css">
+  <link rel="stylesheet" href="normalize.css">
+  <script src="2048js.js" type="text/javascript" charset="utf-8"></script>
+  <script src="hammer.min.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+ <div id="regestration-window">
+   <div class="content-window">
+     <div class="logo-shadow">2048</div>
+     <div class="text-shadow">Welcome to the game</div>
+     <p class="text-normal">Enter your nickname</p>
+     <form id="form">
+       <input type="text" value="" name="nickname" id="nickname" class="input-style" required/>
+       <input id="btn-accept" class="btn-enter" type="submit" value="Done" />
+     </form>
+   </div>
+ </div>
+
+ 
+
+ <div id="leaderboard-window">
+   <div class="content-window">
+     <div class="logo-shadow">2048</div>
+     <p class="text-shadow">
+       BEST PLAYERS IN 2048</p>
+     <p class="text-normal">Please enter your name or nickname</p>
+
+     <button type="button" id="btn-leaderboard" class="btn-leaderboard">Close</button>
+   </div>
+ </div>
+
+<div id="gameover">
+  <div class="gameover">
+      <div class="frame-1">
+        <h2>Your lose</h2>
+      </div>
+      <div class="frame-3">
+        <a href="#" class="btn-restart" id="repeat" onClick='reset()'>RESTART</a>
+      </div>
+      <div class="frame-2">
+        <h1 id="textGameOver">GAME OVER</h1>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+<div id="overlay" class="overlay">
+</div>
+<div class="margin">
+  <div class="container">
+ 
+  
+  <div class="heading">
+    <div class="sticker" id="wonSticker">
+      <div class="sticker-img" ></div>
+      <div class="msg">WIN</div>
+    </div>
+    <div class="head-text"> 
+    <p>2048</p>
+    </div>
+    <div class="menu">
+
+       <a href="#" class="btn-newgame new-game" id="repeat" onClick='reset()'>New Game</a>
+
+
+        <a href="#" class="btn-newgame score-table" id="leaderboard-open">Leaderborad</a>
+
+
+      <span class="score-container" id="value">0</span>
+
+    </div>
+
+
+  </div>
+ 
+  <div class="game">
+    <!--game over window-->
+
+    <!--GAME FIELD-->
+<div id="field-container">
+    <div class="field">
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+    </div>
+</div>
+
+  </div>
+  <div class="info-game">
+    <p><b>HOW TO PLAY:</b> Use your <b>arrow keys</b> (&larr; &rarr; &uarr; &darr;) or in touchscreen <b>swipe</b> to slide the tiles. Two tiles with the same value in line can be merged. The goal is to merge the tiles and get the 2048 tile.</p>
+  </div>
+  <div class="created">
+    Created by <a href="#">Andrei Kishkevich</a>. 
+  </div>
+
+  
+
+</div>
+</div>
+ <div id="status"></div>
+
+  
+    <script src='hammer.min.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+  <script>
+$(window).load(function() {
+  $('#regestration-window').fadeToggle();
+   $('.overlay').show().css({'filter' : 'alpha(opacity=40)'});
+  $('#form').submit(function () {
+            $('#regestration-window').hide();
+            $('#overlay').removeClass('overlay');
+            return false;
+    });
+  });
+$('#leaderboard-open').click(function(){
+    $('#leaderboard-window').fadeToggle();
+    $('#overlay').addClass('overlay');
+    $('.overlay').show().css({'filter' : 'alpha(opacity=40)'});
+});
+
+$("#btn-leaderboard").click(function(){
+    $("#leaderboard-window").fadeToggle('1000');
+    $('#overlay').removeClass('overlay');
+    return false;
+
+});
+$("#repeat").click(function(){
+    $("#gameover").hide('1000');
+    return false;
+
+});
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
